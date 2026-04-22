@@ -71,7 +71,7 @@ class Trainer(object):
         wandb.init(
                 project="CBraMod_finetune",
                 config=vars(self.params),               
-                entity="giuseppe-facchi-phuselab",
+                entity="wandbuser",
                 group=''
             )
 

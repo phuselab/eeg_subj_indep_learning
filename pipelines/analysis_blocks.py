@@ -24,7 +24,7 @@ def run_cbramod_diva(args, config=None):
         wandb.init(
             project=args.project_name,
             config=vars(args + config) if config is not None else vars(args),
-            entity="giuseppe-facchi-phuselab",
+            entity="wandbuser",
             group=args.run_name,
             name=f'{args.run_name}-BB_FT'
         )
@@ -101,7 +101,7 @@ def run_cbramod_diva(args, config=None):
         wandb.init(
             project=args.project_name,
             config=config_vars,
-            entity="giuseppe-facchi-phuselab",
+            entity="wandbuser",
             group=args.run_name,
             name=f'{args.run_name}-DVAE'
         )
@@ -136,7 +136,7 @@ def run_lbm(args, config=None):
         wandb.init(
             project=args.project_name,
             config=vars(args + config) if config is not None else vars(args),
-            entity="giuseppe-facchi-phuselab",
+            entity="wandbuser",
             group=args.run_name,
             name=f'{args.run_name}-LBM'
         )
@@ -233,7 +233,7 @@ def run_alignment(args, config=None):
         wandb.init(
             project=args.project_name,
             config=vars(args + config) if config is not None else vars(args),
-            entity="giuseppe-facchi-phuselab",
+            entity="wandbuser",
             group=args.run_name,
             name=f'{args.run_name}-ALIGNMENT'
         )
