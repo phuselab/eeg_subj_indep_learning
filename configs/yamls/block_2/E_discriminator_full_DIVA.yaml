@@ -1,0 +1,47 @@
+# config_diva.yaml
+classifier_type: "avgpooling_patch_reps"
+dropout: 0.1
+patch_size: 200
+kernel_sizes: [3, 3, 3, 3]
+pool_filter_size: 2
+use_skip: True
+
+encoders:
+  task:
+    name: "task"
+    enabled: true
+    # num_classes lo lasceremo vuoto qui per sovrascriverlo dinamicamente in Python
+  subject:
+    name: "subject"
+    enabled: true
+  noise:
+    name: "noise"
+    enabled: true
+
+loss_config_stage1:
+  classification: true
+  classification_weight: 1.0
+
+loss_config_stage2:
+  self_reconstruction: true
+  self_reconstruction_weight: 0.5
+  self_reconstruction_weight_mse: 0.5
+  kl_divergence: true
+  kl_weight: 0.00001
+  noise_kl_weight: 0.000001
+  classification: true
+  classification_weight: 0.5
+  var_classification: true
+  var_classification_weight: 1.0
+  cross_subject_intra_class: true
+  cross_subject_intra_class_weight: 0.5
+  self_cycle: true
+  self_cycle_weight: 0.05
+  cross_subject_cross_class: true
+  cross_subject_cross_class_weight: 0.1
+  cross_cross_cycle: true
+  cross_cross_cycle_weight: 0.05
+  knowledge_distillation: true
+  kd_weight: 0.1
+  adversarial: true
+  adversarial_weight: 0.1

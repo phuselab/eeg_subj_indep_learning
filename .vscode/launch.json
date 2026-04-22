@@ -1,0 +1,79 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug DVAE (MI_eeg)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/dvae.py",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--backbone", "cbramod",
+                "--backbone-weights", "/mnt/pve/Rita-Storage-2/disentangleData/weights/cbramod_pretrained_weights.pth",
+                "--data-file", "/mnt/pve/Rita-Storage-2/disentangleData/processed_data/clare_processed_cbramod.pt",
+                //"--data-file", "/home/user/projects/eeg_disentanglement/data/processed_data/amigos_eeg_quadrants_10s_cbramod.pt",
+                //"--data-file", "/home/user/projects/eeg_disentanglement/data/processed_data/MI_eeg_cbramod.pt",
+                //"--data-file", "/home/user/projects/eeg_disentanglement/data/processed_data/dreamer_eeg_quadrants_cbramod.pt",
+                // "--data-file", "/home/user/canWeReally/data/processed_data/sleepedfx_cbramod_data.pt",
+                "--epochs", "50",
+                "--batch-size", "64",
+                "--save-dir", "./experiments/clare/prova/claredebug",
+                "--lr", "0.0001",
+                "--stage1-epochs", "0",
+                "--run-name", "claredebug",
+                "--mid_channels", "4", "4", "4", "4"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+
+        {
+            "name": "Debug Main: Alignment (3A_cbramod)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "DATA_ROOT": "/mnt/pve/Rita-Storage-2" // Adjust this path to match your local RITA storage root
+            },
+            "args": [
+                "--backbone", "cbramod",
+                "--backbone-weights", "${env:DATA_ROOT}/disentangleData/weights/cbramod_pretrained_weights.pth",
+                "--data-file", "${env:DATA_ROOT}/disentangleData/processed_data/MI_eeg_cbramod.pt",
+                "--exclude_tasks", "4",
+                "--epochs", "0",
+                "--batch-size", "16",
+                "--save-dir", "./experiments/MI/3A_cbramod",
+                "--lr", "0.0001",
+                "--stage1-epochs", "30",
+                "--run-name", "3A_cbramod",
+                "--project-name", "MI",
+                "--yaml-config", "./configs/yamls/block_3/A_Euclidean_Alignment.yaml",
+                "--analysis-block", "alignment",
+                "--classifier-type", "cbramod_classifier"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }, 
+        {
+            "name": "Debug DVAE (MI_eeg) RITA",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/dvae.py",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--backbone", "cbramod",
+                "--backbone-weights", "/data1/disentangleData/weights/cbramod_pretrained_weights.pth",
+                "--data-file", "/data1/disentangleData/processed_data/MI_eeg_cbramod.pt",
+                "--epochs", "50",
+                "--batch-size", "64",
+                "--save-dir", "./experiments/MI/prova/originalCbraMod_test",
+                "--lr", "0.0001",
+                "--stage1-epochs", "0",
+                "--run-name", "originalCbraMod_test"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

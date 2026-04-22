@@ -1,0 +1,14 @@
+# config_diva.yaml
+classifier_type: "avgpooling_patch_reps"
+dropout: 0.1
+patch_size: 200
+backbone_freeze: false
+
+encoders:
+  task:
+    name: "task"
+    enabled: true
+
+loss_config_stage1:
+  classification: true
+  classification_weight: 1.0

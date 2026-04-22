@@ -1,0 +1,23 @@
+# Test Mode B
+python ../dvae.py \
+  --backbone 'cbramod' \
+  --backbone-weights '/home/user/canWeReally/weights/cbramod_pretrained_weights.pth' \
+  --data-file '/home/user/projects/eeg_disentanglement/data/processed_data/amigos_eeg_quadrants_10s_cbramod.pt' \
+  --epochs 200 \
+  --batch-size 64 \
+  --save-dir ../experiments/amigos/amigos_baseline\
+  --lr 0.0001 \
+  --stage1-epochs 0 \
+  --run-name 'amigos_baseline' \
+  --project-name "AMIGOS_CBraMod_Baseline" \
+  --classifier_type "diva_classifier" \
+  --use-wandb \
+  --loss-kl-weight 0.00001 \
+  --loss-noise-kl-weight 0.000001 \
+  --loss-class-weight 0.5 \
+  --loss-var-class-weight 1.0 \
+  --loss-latent-cons-weight 1.0 \
+  --loss-intra-weight 0.5 \
+  --loss-cross-class-weight 0.1 \
+  --loss-kd-weight 0.1 \
+  --mid_channels 14 8 8 8 \

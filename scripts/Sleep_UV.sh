@@ -1,0 +1,23 @@
+# Test Mode B
+  uv run ../dvae.py \
+  --backbone 'cbramod' \
+  --backbone-weights '/mnt/pve/Rita-Storage-2/disentangleData/weights/cbramod_pretrained_weights.pth' \
+  --data-file '/mnt/pve/Rita-Storage-2/disentangleData/processed_data/sleepedfx_cbramod_data.pt' \
+  --epochs 200 \
+  --batch-size 512 \
+  --save-dir ../experiments/SLEEP/SLEEP_baseline \
+  --lr 0.0001 \
+  --stage1-epochs 0 \
+  --run-name 'SLEEP_baseline' \
+  --use-wandb \
+  --project-name "SLEEP_CBraMod" \
+  --loss-kl-weight 0.00001 \
+  --loss-noise-kl-weight 0.000001 \
+  --loss-class-weight 0.5 \
+  --loss-var-class-weight 1.0 \
+  --loss-intra-weight 0.5 \
+  --loss-cross-class-weight 0.1 \
+  --loss-self-cycle-weight 0.05 \
+  --loss-kd-weight 0.1 \
+  --loss-adv-weight 0.1 \
+  --mid_channels 2 2\

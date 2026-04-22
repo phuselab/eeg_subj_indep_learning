@@ -1,0 +1,16 @@
+classifier_type: "avgpooling_patch_reps"
+dropout: 0.1
+patch_size: 200
+by_subject: false
+by_subject_inference: false
+alignment_type: "euclidean"
+
+
+encoders:
+  task:
+    name: "task"
+    enabled: true
+
+loss_config_stage1:
+  classification: true
+  classification_weight: 1.0

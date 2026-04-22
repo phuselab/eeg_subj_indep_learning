@@ -1,0 +1,24 @@
+[project]
+name = "eeg-disentanglement"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "braindecode[hub]>=1.4.0",
+    "dacite>=1.9.2",
+    "lmdb>=1.8.1",
+    "numpy>=2.4.3",
+    "opentsne>=1.0.4",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.8.0",
+    "seaborn>=0.13.2",
+    "torch>=2.10.0",
+    "wandb>=0.25.1",
+    "xgboost>=3.2.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+]

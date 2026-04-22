@@ -1,0 +1,15 @@
+*.pt
+*__pycache__/
+*wandb/
+*.mdb
+*.png
+output/*
+experiments/*
+weCannot/*
+weCannot
+data/weights/*
+data/temp*
+*.env
+
+!Framework.png
+!MI_ERP_task_subject.png

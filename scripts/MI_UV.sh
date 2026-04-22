@@ -1,0 +1,27 @@
+# Test Mode B
+uv run ../dvae.py \
+  --backbone 'cbramod' \
+  --backbone-weights '/mnt/pve/Rita-Storage-2/disentangleData/weights/cbramod_pretrained_weights.pth' \
+  --data-file '/mnt/pve/Rita-Storage-2/disentangleData/processed_data/MI_eeg_cbramod.pt' \
+  --epochs 200 \
+  --batch-size 128 \
+  --save-dir ../experiments/MI/MI_CBraMod_MSE01_STFT03\
+  --lr 0.0001 \
+  --stage1-epochs 0 \
+  --use-wandb \
+  --run-name 'MI_CBraMod_MSE01_STFT03' \
+  --exclude_tasks 4 \
+  --project-name "MI_CBraMod_Baseline" \
+  --classifier_type "diva_classifier" \
+  --loss-reconstruction-weight 0.3 \
+  --loss-reconstruction-weight-mse 0.1 \
+  --loss-kl-weight 0.00001 \
+  --loss-noise-kl-weight 0.000001 \
+  --loss-class-weight 0.5 \
+  --loss-var-class-weight 1.0 \
+  --loss-intra-weight 0.5 \
+  --loss-cross-class-weight 0.1 \
+  --loss-self-cycle-weight 0.05 \
+  --loss-kd-weight 0.1 \
+  --loss-adv-weight 0.1 \
+  --mid_channels 64 32 16 8\
