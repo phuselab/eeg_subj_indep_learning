@@ -48,13 +48,13 @@ All experiments are launched via dataset-specific shell scripts. Each script run
 ### Motor Imagery (MI)
  
 ```bash
-bash ./eeg_disentanglement/scripts/yaml_scripts/MI/MI_execute.sh
+bash ./scripts/yaml_scripts/MI/MI_execute.sh
 ```
  
 ### ERP CORE
  
 ```bash
-bash ./eeg_disentanglement/scripts/yaml_scripts/ERP/ERP_execute.sh
+bash ./scripts/yaml_scripts/ERP/ERP_execute.sh
 ```
  
 > Scripts expect `uv` to be available in `$PATH`. Each script reads from the corresponding YAML config files in the same directory.
