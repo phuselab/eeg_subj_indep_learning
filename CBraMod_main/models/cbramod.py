@@ -72,8 +72,8 @@ class PatchEmbedding(nn.Module):
         # lazy projection: created on first forward if conv flattened dim != d_model
         self.to_d_model = None
         self._proj_initialized = False
-        self._spec_initialized = False          # ! Lia added
-        self.spectral_proj = None  # will lazy-init based on FFT bins # ! Lia added
+        self._spec_initialized = False          
+        self.spectral_proj = None  # will lazy-init based on FFT bins 
 
     def forward(self, x, mask=None):
         #print("PatchEmbedding input shape:", x.shape)

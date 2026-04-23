@@ -22,7 +22,7 @@ def create_backbone(args, data_shape: Tuple[int, int], config: ModelConfig, use_
     # Signal Processing Features
     if training_mode == 'signal_features':
         sfreq = 128.0 # should not be hard coded
-        # sfreq ACHTUNG LIA 128HZ HARD CODED, should be passed from args or data info
+        
         backbone = SignalProcessingBackbone(
             n_chans=n_chans, n_times=n_times, sfreq=sfreq
         )
